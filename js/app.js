@@ -94,7 +94,7 @@ function pantallaLogin(modo = 'entrar') {
       h('div', { class: 'auth-card' },
         h('div', { class: 'brand' }, logo(), h('span', {}, 'CasaMarta')),
         h('h1', {}, modo === 'entrar' ? 'Hola, Marta' : titulo),
-        h('p', { class: 'muted' }, 'Tu espacio para organizar el gran paso: la venta de la casa de tus padres y la compra de tu nuevo hogar.'),
+        h('p', { class: 'muted' }, 'Tu espacio para ayudar a tus padres en el gran paso: la venta de su casa y la compra de su nueva vivienda.'),
         form, links))));
   refreshIcons();
   setTimeout(() => email.focus(), 50);

@@ -58,7 +58,7 @@ export async function render(el, ctx) {
       h('button', { class: 'btn btn-ghost', onclick: () => exportCSV('suministros', sums) }, icon('download'), 'CSV')),
     h('div', { class: 'grid-2 cols-sum' },
       columna('actual', 'Casa de los padres', 'Cambio de titular al comprador o baja tras la venta'),
-      columna('nueva', 'Casa nueva', 'Altas o cambios de titular a tu nombre')),
+      columna('nueva', 'Casa nueva', 'Altas o cambios de titular a nombre de tus padres')),
     check);
   refreshIcons();
 }

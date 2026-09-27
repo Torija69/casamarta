@@ -39,8 +39,8 @@ export async function render(el) {
 
   el.replaceChildren(
     h('div', { class: 'hero' },
-      h('div', {}, h('p', { class: 'eyebrow' }, saludo + ', Marta'), h('h1', {}, 'Tu espacio para organizar el gran paso'),
-        h('p', { class: 'muted' }, 'Venta de la casa de tus padres en Majadahonda y compra de tu nuevo hogar.')),
+      h('div', {}, h('p', { class: 'eyebrow' }, saludo + ', Marta'), h('h1', {}, 'Ayuda a tus padres en el gran paso'),
+        h('p', { class: 'muted' }, 'Venta de su casa en Majadahonda y compra de su nueva vivienda.')),
       h('div', { class: 'hero-actions' },
         h('a', { class: 'btn btn-primary', href: '#/pisos' }, icon('plus'), 'Añadir piso'),
         h('a', { class: 'btn btn-soft', href: '#/venta' }, icon('user-plus'), 'Registrar comprador'))),

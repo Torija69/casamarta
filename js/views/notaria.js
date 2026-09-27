@@ -69,7 +69,7 @@ export async function render(el, ctx) {
         [['todos', 'Todos'], ['pendientes', 'Pendientes'], ['listos', 'Listos']].map(([v, l]) => h('button', { class: 'chip' + (filtroEstado === v ? ' active' : ''), 'aria-pressed': filtroEstado === v, onclick: () => { filtroEstado = v; recargar(); } }, l))),
       h('button', { class: 'btn btn-ghost btn-sm', onclick: revisarTodo }, icon('check-check'), 'Marcar obtenidos como entregados')),
     h('section', { class: 'card' }, lista.length ? h('ul', { class: 'doc-rows' }, lista.map(fila)) : h('p', { class: 'muted' }, 'No hay documentos con este filtro.')),
-    h('p', { class: 'small muted disclaimer' }, 'Lista orientativa basada en la práctica notarial habitual en la Comunidad de Madrid. Confirma con la notaría qué necesita exactamente para tu caso.'));
+    h('p', { class: 'small muted disclaimer' }, 'Lista orientativa basada en la práctica notarial habitual en la Comunidad de Madrid. Confirma con la notaría qué necesita exactamente en el caso de tus padres.'));
   refreshIcons();
 }
 

@@ -76,7 +76,7 @@ export async function render(el, ctx) {
       : fila(`ITP Comunidad de Madrid (${d.parametros.itp_general ?? 6} %)`, money(cc.itp)),
     fila(`Notaría, registro y gestoría (~${d.parametros.gastos_notaria_registro_pct ?? 1} %)`, money(cc.notaria)),
     fila('Total impuestos y gastos', money(cc.total), 'total'),
-    h('p', { class: 'small muted' }, 'En Madrid hay tipos reducidos o bonificaciones en algunos casos (familia numerosa, menores de 35 años…). Comprueba si aplica alguno. El ITP se liquida con el modelo 600 en 30 días hábiles.'));
+    h('p', { class: 'small muted' }, 'Los compradores son tus padres. En Madrid hay tipos reducidos en algunos casos (por ejemplo, familia numerosa o discapacidad); comprueba si les aplica alguno. El ITP se liquida con el modelo 600 en 30 días hábiles.'));
 
   // --- Parámetros ---
   const params = h('details', { class: 'card' }, h('summary', {}, h('h2', {}, 'Parámetros fiscales y fuentes')),

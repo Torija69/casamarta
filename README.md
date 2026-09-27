@@ -1,6 +1,6 @@
 # CasaMarta
 
-Web para ayudar a Marta a organizar **la venta de la casa de sus padres (Majadahonda)** y **la compra de su nueva vivienda**.
+Web para que Marta ayude a sus padres a organizar **la venta de su casa (Majadahonda)** y **la compra de su nueva vivienda**, donde vivirán ellos.
 
 **Web:** https://torija69.github.io/casamarta/
 
@@ -48,7 +48,7 @@ La pantalla de login no permite crear cuentas: las altas solo se hacen desde el 
 
 ## Base de datos
 
-Las migraciones están en `supabase/migrations/` (001 a 006): acceso y miembros, tablas del dominio, storage, datos iniciales (19 documentos de notaría, tareas fiscales y de mudanza, parámetros fiscales con sus fuentes) y ajustes de seguridad.
+Las migraciones están en `supabase/migrations/` (001 a 007): acceso y miembros, tablas del dominio, storage, datos iniciales (19 documentos de notaría, tareas fiscales y de mudanza, parámetros fiscales con sus fuentes) y ajustes de seguridad.
 
 ## Desarrollo local
 

@@ -28,7 +28,7 @@ export async function render(el, ctx) {
     const ord = { visita: (a, b) => (a.fecha_visita || '9999').localeCompare(b.fecha_visita || '9999'), precio: (a, b) => (a.precio_pedido || 0) - (b.precio_pedido || 0),
       m2: (a, b) => (a.precio_pedido / a.metros || 9e9) - (b.precio_pedido / b.metros || 9e9), valoracion: (a, b) => (b.valoracion || 0) - (a.valoracion || 0), reciente: (a, b) => b.created_at.localeCompare(a.created_at) }[filtros.orden];
     r.sort(ord);
-    lista.replaceChildren(...(r.length ? r.map((p) => tarjeta(p, fotos)) : [empty('house-plus', pisos.length ? 'Ningún piso con estos filtros' : 'Aún no hay pisos', pisos.length ? 'Prueba a cambiar los filtros.' : 'Añade el primer piso que te interese: dirección, precio, contacto y fecha de visita.', pisos.length ? null : h('button', { class: 'btn btn-primary', onclick: nuevo }, icon('plus'), 'Añadir piso'))]));
+    lista.replaceChildren(...(r.length ? r.map((p) => tarjeta(p, fotos)) : [empty('house-plus', pisos.length ? 'Ningún piso con estos filtros' : 'Aún no hay pisos', pisos.length ? 'Prueba a cambiar los filtros.' : 'Añade el primer piso que interese a tus padres: dirección, precio, contacto y fecha de visita.', pisos.length ? null : h('button', { class: 'btn btn-primary', onclick: nuevo }, icon('plus'), 'Añadir piso'))]));
     compararBtn.disabled = seleccion.size < 2;
     compararBtn.lastChild.textContent = seleccion.size ? `Comparar (${seleccion.size})` : 'Comparar';
     refreshIcons();
@@ -163,7 +163,7 @@ async function detalle(el, id, ctx) {
             h('div', {}, h('strong', {}, `${fecha(v.fecha)} ${hora(v.hora)}`), v.asistentes ? h('span', { class: 'muted small' }, ' · ' + v.asistentes) : null, v.impresiones ? h('p', { class: 'pre small' }, v.impresiones) : null),
             h('div', { class: 'row' }, h('button', { class: 'btn-icon', 'aria-label': 'Editar visita', onclick: () => nuevaVisita(v) }, icon('pencil')),
               h('button', { class: 'btn-icon', 'aria-label': 'Borrar visita', onclick: async () => { if (await confirmar('¿Borrar esta visita?')) { await db.remove('visitas_pisos', v.id); recargar(); } } }, icon('trash-2'))))))
-            : h('p', { class: 'muted' }, 'Registra cada visita con tus impresiones.'))),
+            : h('p', { class: 'muted' }, 'Registra cada visita con las impresiones de tus padres.'))),
       h('aside', { class: 'stack' },
         h('section', { class: 'card' }, h('h2', {}, 'Contacto'),
           h('p', {}, h('strong', {}, p.contacto_nombre || 'Sin nombre')), p.contacto_agencia ? h('p', { class: 'muted' }, p.contacto_agencia) : null,
