@@ -29,7 +29,7 @@ export async function render(el, ctx) {
         title: 'Dar acceso a una persona', wide: false,
         fields: [{ k: 'email', label: 'Email', type: 'email', req: true, full: true, placeholder: 'marta@ejemplo.com' }, { k: 'nombre', label: 'Nombre', full: true },
           { k: 'rol', label: 'Rol', type: 'select', opts: [['colaborador', 'Colaborador (puede ver y editar todo)'], ['propietario', 'Propietario (además gestiona accesos)']], def: 'colaborador', full: true }],
-        extra: h('p', { class: 'small muted' }, 'Después, esa persona entra en la web, pulsa «Crear cuenta» con este mismo email y elige su contraseña.'),
+        extra: h('p', { class: 'small muted' }, 'Después, crea su usuario en Supabase (Authentication → Users → Add user → Create new user, con «Auto Confirm User») usando este mismo email y pásale la contraseña. Podrá cambiarla en Ajustes.'),
         onSave: async (x) => { const { error } = await sb.from('usuarios_permitidos').insert({ ...x, email: x.email.toLowerCase().trim() }); if (error) throw new Error(error.message.includes('duplicate') ? 'Ese email ya tiene acceso.' : error.message); toast('Acceso concedido'); recargar(); },
       }) }, icon('user-plus'), 'Dar acceso') : null),
     h('ul', { class: 'list' }, permitidos.map((p) => {

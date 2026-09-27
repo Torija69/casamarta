@@ -36,12 +36,15 @@ La clave de `js/config.js` es la *publishable key* de Supabase: está pensada pa
 
 1. Entra en la web con la cuenta de propietario → **Ajustes** → **Personas con acceso** → **Dar acceso**.
 2. Escribe el email de Marta (rol *colaborador* o *propietario*).
-3. Marta abre la web, pulsa **Crear cuenta (solo emails autorizados)** con ese email y elige su contraseña.
+3. En el panel de Supabase: **Authentication → Users → Add user → Create new user** con ese mismo email, una contraseña inicial y *Auto Confirm User* marcado.
+4. Pásale la contraseña a Marta; podrá cambiarla en **Ajustes**.
+
+La pantalla de login no permite crear cuentas: las altas solo se hacen desde el panel de Supabase.
 
 ## Configuración en el panel de Supabase
 
 - **Authentication → URL Configuration:** Site URL = `https://torija69.github.io/casamarta/` y añade la misma URL en *Redirect URLs*.
-- **Authentication → Sign In / Providers → Email:** si no configuras un SMTP propio, desactiva *Confirm email* (el servidor de correo por defecto de Supabase solo envía a miembros de la organización). El alta sigue limitada a los emails autorizados.
+- **Authentication → Sign In / Providers:** desactiva *Allow new users to sign up* (las cuentas se crean desde *Users → Add user*). Además, el trigger de `usuarios_permitidos` rechaza cualquier email no autorizado.
 
 ## Base de datos
 

@@ -55,10 +55,10 @@ const root = document.getElementById('app');
 function pantallaLogin(modo = 'entrar') {
   document.body.classList.add('is-auth');
   const email = h('input', { type: 'email', id: 'email', required: true, autocomplete: 'email', placeholder: 'tu@email.com' });
-  const pass = h('input', { type: 'password', id: 'pass', required: modo !== 'recuperar', minlength: 6, autocomplete: modo === 'crear' ? 'new-password' : 'current-password', placeholder: '••••••••' });
+  const pass = h('input', { type: 'password', id: 'pass', required: modo !== 'recuperar', minlength: 6, autocomplete: 'current-password', placeholder: '••••••••' });
   const err = h('p', { class: 'form-error', role: 'alert', hidden: true });
   const info = h('p', { class: 'form-info', role: 'status', hidden: true });
-  const titulo = { entrar: 'Entrar', crear: 'Crear cuenta', recuperar: 'Recuperar contraseña' }[modo];
+  const titulo = { entrar: 'Entrar', recuperar: 'Recuperar contraseña' }[modo];
   const btn = h('button', { class: 'btn btn-primary btn-block', type: 'submit' }, titulo);
   const redirect = location.origin + location.pathname;
 
@@ -69,10 +69,6 @@ function pantallaLogin(modo = 'entrar') {
         if (modo === 'entrar') {
           const { error } = await sb.auth.signInWithPassword({ email: email.value.trim(), password: pass.value });
           if (error) throw error;
-        } else if (modo === 'crear') {
-          const { data, error } = await sb.auth.signUp({ email: email.value.trim(), password: pass.value, options: { emailRedirectTo: redirect } });
-          if (error) throw error;
-          if (!data.session) { info.textContent = 'Cuenta creada. Revisa tu correo para confirmar el email y después entra.'; info.hidden = false; }
         } else {
           const { error } = await sb.auth.resetPasswordForEmail(email.value.trim(), { redirectTo: redirect });
           if (error) throw error;
@@ -88,7 +84,6 @@ function pantallaLogin(modo = 'entrar') {
 
   const links = h('div', { class: 'auth-links' },
     modo !== 'entrar' ? h('button', { class: 'link', onclick: () => pantallaLogin('entrar') }, 'Ya tengo cuenta') : null,
-    modo !== 'crear' ? h('button', { class: 'link', onclick: () => pantallaLogin('crear') }, 'Crear cuenta (solo emails autorizados)') : null,
     modo === 'entrar' ? h('button', { class: 'link', onclick: () => pantallaLogin('recuperar') }, '¿Has olvidado la contraseña?') : null);
 
   root.replaceChildren(h('main', { class: 'auth' },
