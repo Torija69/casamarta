@@ -21,3 +21,4 @@ credentials*
 *.db-shm
 *.sqlite
 data/session-state.json
+!.env.example
