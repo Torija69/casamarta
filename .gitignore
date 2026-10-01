@@ -4,3 +4,20 @@ node_modules/
 dist/
 .DS_Store
 *.log
+
+# Reglas comunes (catalogo-proyectos/plantillas/gitignore)
+*.bak
+*.tmp
+__pycache__/
+.venv/
+.env.*
+*.pem
+*.key
+credentials*
+*.salt
+*service_role*
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+data/session-state.json
